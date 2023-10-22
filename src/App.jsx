@@ -92,7 +92,18 @@ function App(){
 
 //   </div>
 //   </div>
-<div className='h-screen w-screen border-4 flex justify-center items-center border-red-600'>
+
+  )
+}
+
+export default App
+
+
+
+
+
+
+  /* <div className='h-screen w-screen border-4 flex justify-center items-center border-red-600'>
  <div className='w-[550px] h-[480px] rounded-lg bg-[#E7FFFB]'>
  <div className='flex justify-between p-6 border-b border-[#B3B3B3]'>
     <div className='text-2xl font-bold '>Login as</div>
@@ -126,17 +137,7 @@ function App(){
     <div className='text-[#07A189] font-bold text-lg'>Sign up</div>
   </div>
  </div>
-</div>
-  )
-}
-
-export default App
-
-
-
-
-
-
+</div> */
 // function App() {
 //   const [count, setCount] = useState(0)
 
