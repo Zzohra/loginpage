@@ -2,6 +2,8 @@ import mailSvg from '../../src/icons/mail.svg'
 import close from '../../src/icons/closeSvg.svg'
 import lock from '../../src/icons/lock.svg'
 import eye from '../../src/icons/eye.svg'
+
+
 export default function Login(props){
     return(
         <div className='h-screen w-screen   flex justify-center items-center'>
@@ -11,9 +13,15 @@ export default function Login(props){
     <img src={close} alt="" />
   </div>
   <div className=' w-full sm:px-16 px-8 py-4  '>
-    <div className='mb-3 text-xl'>Wecome Back,</div>
+    <div className='mb-3 text-xl'>Welcome Back,</div>
+
+
+
+
     <div className='flex flex-col gap-5'>
     <div className='relative'>
+
+
       <div>
         Name
       </div>
@@ -22,25 +30,31 @@ export default function Login(props){
     </div>
     <div className='relative'>
       <div>Password</div>
-      <input type="text"  className='rounded-lg w-full py-[3%] border border-[#07A189]'/>
+      <input type="text"  className='rounded-lg pl-8 w-full py-[3%] border border-[#07A189]'/>
       <img className='absolute sm:top-10 top-8 left-2' src={eye} alt="" />
     </div>
     </div>
+
+
+
+
+
     <div className='text-right mt-2 mb-6 text-[#6C6C6C] font-semibold'>
       Forgot Password?
     </div>
-    <button className='bg-black text-white px-4 py-2 rounded-lg w-full'>
+    <button className='bg-black text-white px-4 py-2 rounded-lg w-full'
+    onClick={props.handleClick}>
       Sign in
     </button>
   </div>
   <div className='flex '>
-<div className=' relative border-t-[2px] w-[45%] my-3'> </div>
-<div className='absolute ml-[40%] sm:ml-[16%] mb-[4%]  text-[#6C6C6C] sm:text-[20px]'>or</div>
-<div className=' relative border-t-[2px] w-[45%] my-3 ml-[20%]'> </div>
+<div className=' relative border-t-[2px] w-[49%] my-4'> </div>
+<div className='absolute text-[#E7FFFB]'>.</div>
+<div className=' relative  text-[#6C6C6C] text-[20px] px-[20px]'>or</div>
+<div className=' relative border-t-[2px] w-[49%]  my-4'> </div>
 
   </div>
- 
-  <div className='flex gap-2 justify-center items-center'>
+  <div className='flex gap-2 justify-center items-center '>
     <div className='text-[#6C6C6C]'>New User Account?</div>
     <div className='text-[#07A189] font-bold text-lg'>Sign up</div>
   </div>

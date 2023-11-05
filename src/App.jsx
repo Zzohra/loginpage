@@ -1,16 +1,25 @@
 
 import './App.css'
-import mailSvg from '../src/icons/mail.svg'
-import close from '../src/icons/closeSvg.svg'
-import lock from '../src/icons/lock.svg'
-import eye from '../src/icons/eye.svg'
+
+import { useState } from 'react'
+
+
 
 import Login from './components/Login'
+import Entered from './components/Entered'
 
 function App(){
+
+
+  const [isLogged, setIsLogged]=useState(false)
+  const newFunc=()=>{
+    setIsLogged(true)
+  }
+
   return (
     <>
-    <Login />
+    
+  { isLogged ? <Login handleClick={newFunc} /> : <Entered /> }
     </>
   )
 }
