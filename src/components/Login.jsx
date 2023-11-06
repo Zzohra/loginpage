@@ -25,7 +25,9 @@ export default function Login(props){
       <div>
         Name
       </div>
-      <input className='rounded-lg w-full pl-9 py-[3%] border border-[#07A189]' type="text" />
+      <input onChange={(event)=>{
+        props.setUsername(event.target.value)
+      }} className='rounded-lg w-full pl-9 py-[3%] border border-[#07A189]' type="text" />
       <img className='absolute sm:top-10  top-9  left-2' src={mailSvg} alt="" />
     </div>
     <div className='relative'>
@@ -43,7 +45,9 @@ export default function Login(props){
       Forgot Password?
     </div>
     <button className='bg-black text-white px-4 py-2 rounded-lg w-full'
-    onClick={props.handleClick}>
+    onClick={()=>{
+      props.setIsLogged(true)
+      }}>
       Sign in
     </button>
   </div>

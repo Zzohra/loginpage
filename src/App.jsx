@@ -12,14 +12,18 @@ function App(){
 
 
   const [isLogged, setIsLogged]=useState(false)
-  const newFunc=()=>{
-    setIsLogged(true)
-  }
+  const [username,setUsername]=useState('')
+  // const settingUserName=(value)=>{
+  //   setUsername(value)
+  // }
+  // console.log(isLogged)
+  // const newFunc=()=>{
+  //   setIsLogged(true)
+  // }
 
   return (
     <>
-    
-  { isLogged ? <Login handleClick={newFunc} /> : <Entered /> }
+  { isLogged===false?<Login setUsername={setUsername} setIsLogged={setIsLogged} />:<Entered username={username} />  }
     </>
   )
 }

@@ -1,6 +1,8 @@
-export default function Entered(){
+export default function Entered(props){
   return(
 
-    <h1>welcome </h1>
+    <>
+    <h1 className="p-4 text-3xl">welcome  {props.username}</h1>
+    </>
   )
 }
