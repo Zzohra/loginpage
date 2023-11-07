@@ -7,12 +7,16 @@ import { useState } from 'react'
 
 import Login from './components/Login'
 import Entered from './components/Entered'
+import Fav from './components/Fav'
 
 function App(){
 
 
   const [isLogged, setIsLogged]=useState(false)
   const [username,setUsername]=useState('')
+const [submit, isSubmit]=useState(false)
+const [color, setColor]=useState('')
+const [food, setFood]=useState('')
   // const settingUserName=(value)=>{
   //   setUsername(value)
   // }
@@ -23,7 +27,7 @@ function App(){
 
   return (
     <>
-  { isLogged===false?<Login setUsername={setUsername} setIsLogged={setIsLogged} />:<Entered username={username} />  }
+   { isLogged ? (submit ? (<Fav username={username} color={color} food={food} />) : ( <Entered username={username} setColor={setColor} setFood={setFood} isSubmit={isSubmit} /> )) : ( <Login setUsername={setUsername} setIsLogged={setIsLogged} /> )}
     </>
   )
 }
