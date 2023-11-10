@@ -14,6 +14,7 @@ function App(){
 
   const [isLogged, setIsLogged]=useState(false)
   const [username,setUsername]=useState('')
+  const [password, setPassword]=useState('')
 const [submit, isSubmit]=useState(false)
 const [color, setColor]=useState('')
 const [food, setFood]=useState('')
@@ -27,7 +28,9 @@ const [food, setFood]=useState('')
 
   return (
     <>
-   { isLogged ? (submit ? (<Fav username={username} color={color} food={food} />) : ( <Entered username={username} setColor={setColor} setFood={setFood} isSubmit={isSubmit} /> )) : ( <Login setUsername={setUsername} setIsLogged={setIsLogged} /> )}
+   { isLogged ? (submit ? (<Fav username={username} color={color} food={food} />) :
+    ( <Entered username={username} setColor={setColor} setFood={setFood} isSubmit={isSubmit} /> )) : 
+    ( <Login setPassword={setPassword} setUsername={setUsername} username={username} password={password} setIsLogged={setIsLogged} /> )}
     </>
   )
 }
