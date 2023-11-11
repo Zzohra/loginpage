@@ -46,18 +46,12 @@ export default function Login({username,setUsername,setPassword,password,setIsLo
     </div>
     <button className='bg-black text-white px-4 py-2 rounded-lg w-full'
     onClick={()=>{
-    //  setName('ameer')
-    //  setIsName(true)
-    // setNameError(true)
-    // setPasswordError(true)
-    //  if(username && password !==''){
-    //   console.log('if ran')
-    //   setIsLogged(true);
-    //  }
+   
     if(username===''){
       setNameError(true)
     }else if(password===''){
       setPasswordError(true)
+      console.log('its workimg')
     }
      else {
       setIsLogged(true)
