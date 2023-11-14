@@ -29,7 +29,7 @@ const [food, setFood]=useState('')
   return (
     <>
    { isLogged ? (submit ? (<Fav username={username} color={color} food={food} />) :
-    ( <Entered username={username} setColor={setColor} setFood={setFood} isSubmit={isSubmit} /> )) : 
+    ( <Entered username={username} setColor={setColor} color={color} food={food} setFood={setFood} isSubmit={isSubmit} /> )) : 
     ( <Login setPassword={setPassword} setUsername={setUsername} username={username} password={password} setIsLogged={setIsLogged} /> )}
     </>
   )

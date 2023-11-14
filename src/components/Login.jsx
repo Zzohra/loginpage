@@ -6,7 +6,7 @@ import { useState } from 'react'
 
 
 export default function Login({username,setUsername,setPassword,password,setIsLogged}){
-    const [name,setName]=useState('')
+
     const [nameError,setNameError]=useState(false)
     const [passwordError,setPasswordError]=useState(false)
     return(
