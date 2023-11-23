@@ -12,10 +12,10 @@ import Fav from './components/Fav'
 function App(){
 
 
-  const [isLogged, setIsLogged]=useState(false)
+  const [isLogged, setIsLogged]=useState(true)
   const [username,setUsername]=useState('')
   const [password, setPassword]=useState('')
-const [submit, isSubmit]=useState(false)
+const [submit, isSubmit]=useState(true)
 const [color, setColor]=useState('')
 const [food, setFood]=useState('')
   // const settingUserName=(value)=>{
