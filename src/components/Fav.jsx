@@ -17,13 +17,23 @@ export default function Fav(props){
       id:2
     }
    ])
-    // onChange={(event)=>{
-    //   setColor(event.target.value)   setItems([...items, inputText])
+   
+   const newId = items.length > 0 ? items[items.length - 1].id+1 : 1;
+
+const newItem={
+  id:newId,
+  name:input
+}
+
    function adder(){
-    setItems([...items, input])
+    setItems([...items, newItem])
 
     setInput('')
    }
+
+function deleter(id){
+  setItems((prevItems) => prevItems.filter((item) => item.id !== id));
+}
 
   return(
     <>
@@ -36,8 +46,8 @@ export default function Fav(props){
 
 <ul>
   {items.map((item)=>{ return(
-<li className="flex gap-2 cursor-pointer  items-center">
-  {item.name} <button><BsTrash/></button>
+<li className="flex gap-2 cursor-pointer  items-center" key={item.id}>
+  {item.name} <button onClick={()=>deleter(item.id)}><BsTrash/></button>
 </li>
   )})}
 </ul>
