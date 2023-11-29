@@ -13,6 +13,7 @@ export default function Fav(props) {
     {
       name: 'eggs',
       id: 1
+     
     },
     {
       name: "veggies",
@@ -20,13 +21,8 @@ export default function Fav(props) {
     }
   ])
 
-  const zohru = {
-    age: 21,
-    cuteness: "infinity"
-  }
-  zohru.cuteness = "extra-infinite"
+ 
 
-  console.log(zohru)
   function adder() {
     const newId = items?.length > 0 ? items[items.length - 1].id + 1 : 1;
 
