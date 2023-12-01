@@ -37,6 +37,12 @@ export default function Fav(props) {
 
   }
 
+  function remover() {
+    const filteredArr=items.filter((item)=>)
+    setItem(filteredArr)
+  }
+
+ 
   function updater() {
     const newArr = items.map((item) => {
       if (item.id === editId) {
@@ -84,7 +90,7 @@ export default function Fav(props) {
               adder()
             }
           }} >ADD</button>
-          <button className="p-3 text-white bg-red-600 rounded-md">
+          <button className="p-3 text-white bg-red-600 rounded-md" value={checked} onClick={()=>remover(item.id)}>
             Delete Selected
           </button>
         </div>
