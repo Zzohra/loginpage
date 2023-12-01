@@ -9,15 +9,17 @@ export default function Fav(props) {
   const [input, setInput] = useState('')
   const [editId, setEditId] = useState('')
   const [update, setUpdate] = useState('')
+  const [checked,setChecked]=useState(false)
   const [items, setItems] = useState([
     {
       name: 'eggs',
-      id: 1
-     
+      id: 1,
+      isChecked:false
     },
     {
       name: "veggies",
-      id: 2
+      id: 2,
+      isChecked:false
     }
   ])
 
@@ -26,7 +28,7 @@ export default function Fav(props) {
   function adder() {
     const newId = items?.length > 0 ? items[items.length - 1].id + 1 : 1;
 
-    setItems([...items, { name: input, id: newId }])
+    setItems([...items, { name: input, id: newId,isChecked:false }])
 
 
   }
@@ -46,6 +48,19 @@ export default function Fav(props) {
     })
     setItems(newArr)
 
+  }
+  const changeChecked=(id,checkValue)=>{
+    console.log(checkValue)
+    const newArr = items.map((item) => {
+      if (item.id === id) {
+        return { ...item, isChecked:checkValue }
+      }
+      else {
+        return item
+      }
+    })
+    setItems(newArr)
+ 
   }
   //.map()  return an array, it can onli be used on an array
   //.filter() return an array too, and it can also be onli used on an array
@@ -83,8 +98,9 @@ export default function Fav(props) {
                 <input className="border-2 border-black" type="text" value={update} onChange={(e) => { setUpdate(e.target.value) }} /> 
                 :
                 <>
-                <input type="checkbox" />
+                <input type="checkbox" checked={item.isChecked} onChange={(e)=>changeChecked(item.id,e.target.checked)} />
                 <div >{item.name} </div>
+                {/* {item.isChecked && <div>did it work?</div>} */}
                 </>
                 }
 
@@ -106,7 +122,9 @@ export default function Fav(props) {
             )
           })}
         </ul>
-
+{/* <input type="checkbox" checked={checked} onChange={(e)=>{
+  setChecked(e.target.checked)
+}} /> */}
       </div>
 
 
