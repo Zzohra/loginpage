@@ -38,8 +38,9 @@ export default function Fav(props) {
   }
 
   function remover() {
-    const filteredArr=items.filter((item)=>)
-    setItem(filteredArr)
+    const filteredArr=items.filter((item)=>item.isChecked===false)
+    setItems(filteredArr)
+    
   }
 
  
@@ -65,9 +66,17 @@ export default function Fav(props) {
         return item
       }
     })
+
     setItems(newArr)
- 
+
+
+
+
+
+
   }
+
+
   //.map()  return an array, it can onli be used on an array
   //.filter() return an array too, and it can also be onli used on an array
 
@@ -90,7 +99,9 @@ export default function Fav(props) {
               adder()
             }
           }} >ADD</button>
-          <button className="p-3 text-white bg-red-600 rounded-md" value={checked} onClick={()=>remover(item.id)}>
+          <button 
+       
+          className="p-3 text-white bg-red-600 rounded-md" value={checked} onClick={()=>remover()}>
             Delete Selected
           </button>
         </div>

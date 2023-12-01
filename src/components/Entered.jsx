@@ -3,6 +3,7 @@ import { useState } from "react"
 export default function Entered({username, setColor, setFood, isSubmit , food, color}){
   const [foodError, setFoodError]=useState(false)
  const [colorError, setColorError]=useState(false) 
+
   return(
 
     <>
