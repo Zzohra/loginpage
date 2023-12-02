@@ -42,8 +42,6 @@ export default function Fav(props) {
     setItems(filteredArr)
     
   }
-
- 
   function updater() {
     const newArr = items.map((item) => {
       if (item.id === editId) {
@@ -66,20 +64,8 @@ export default function Fav(props) {
         return item
       }
     })
-
     setItems(newArr)
-
-
-
-
-
-
   }
-
-
-  //.map()  return an array, it can onli be used on an array
-  //.filter() return an array too, and it can also be onli used on an array
-
   return (
     <>
 
@@ -103,6 +89,11 @@ export default function Fav(props) {
        
           className="p-3 text-white bg-red-600 rounded-md" value={checked} onClick={()=>remover()}>
             Delete Selected
+          </button>
+          <button
+          className="p-3 border-black border-2 rounded-md"
+          >
+            Select All
           </button>
         </div>
 
