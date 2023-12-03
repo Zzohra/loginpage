@@ -1,5 +1,7 @@
 import { useState } from "react"
-import { Bs0Square, BsTrash } from 'react-icons/bs'
+import { Bs0Square, BsTrash,BsPenFill } from 'react-icons/bs'
+import {FaEdit, FaTrash} from 'react-icons/fa'
+import { FaTrashAlt } from "react-icons/fa"
 export default function Fav(props) {
   // const arr=[2,3,4]
   // console.log("this is before pushing",arr)
@@ -87,7 +89,7 @@ export default function Fav(props) {
           }} >ADD</button>
           <button 
        
-          className="p-3 text-white bg-red-600 rounded-md" value={checked} onClick={()=>remover()}>
+          className="p-3  text-white bg-red-600 rounded-md" value={checked} onClick={()=>remover()}>
             Delete Selected
           </button>
           <button
@@ -114,13 +116,13 @@ export default function Fav(props) {
 
 
 
-                <button onClick={() => deleter(item.id)}><BsTrash /></button>
+                <button className="text-red-900 " onClick={() => deleter(item.id)}><FaTrash /></button>
                 <button
                   onClick={() => {
                     setEditId(item.id)
                     setUpdate(item.name)
                   }}
-                  className="p-1 bg-blue-800 rounded-md text-white" >Edit</button>
+                  className="p-1 text-black rounded-md text-white" ><FaEdit/></button>
                 {(editId === item.id) && <button onClick={() => {
                   updater()
                   setEditId('aaaaa')
