@@ -44,6 +44,12 @@ export default function Fav(props) {
     setItems(filteredArr)
     
   }
+
+function selecter(){
+  const deleteSelected=items.map((item)=>({...item, isChecked:true}))
+ setItems(deleteSelected)
+}
+
   function updater() {
     const newArr = items.map((item) => {
       if (item.id === editId) {
@@ -93,7 +99,7 @@ export default function Fav(props) {
             Delete Selected
           </button>
           <button
-          className="p-3 border-black border-2 rounded-md"
+          className="p-3 border-black border-2 rounded-md" onClick={()=>selecter()}
           >
             Select All
           </button>
