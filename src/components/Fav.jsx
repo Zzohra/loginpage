@@ -128,7 +128,7 @@ function selecter(){
                     setEditId(item.id)
                     setUpdate(item.name)
                   }}
-                  className="p-1 text-black rounded-md text-white" ><FaEdit/></button>
+                  className="p-1 text-black rounded-md " ><FaEdit/></button>
                 {(editId === item.id) && <button onClick={() => {
                   updater()
                   setEditId('aaaaa')
