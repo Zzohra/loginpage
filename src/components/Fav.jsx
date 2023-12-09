@@ -77,22 +77,11 @@ function selecter(){
   return (
     <>
 
-      <div className="ml-5 h-screen w-screen flex flex-col gap-4 items-center justify-center">
-        <div className="flex gap-2">
-          <input value={input} type="text" className="border-2 border-red-700 ml-5 rounded"
-            onChange={(e) => { setInput(e.target.value) }} />
-          {/* <textarea value={} className="border-2 border-black"></textarea> */}
+<div className="bg-[#ece1f0] flex flex-col items-center w-screen h-screen">
 
-
-
-
-          <button className="text-white bg-blue-500 p-2 rounded-md" onClick={() => {
-            if (input === "") {
-              return
-            } else {
-              adder()
-            }
-          }} >ADD</button>
+      <div className=" bg-white mt-[15%]   w-[60%] h-[20%] shadow-lg flex flex-col gap-4 items-center justify-center">
+      
+         <div>
           <button 
        
           className="p-3  text-white bg-red-600 rounded-md" value={checked} onClick={()=>remover()}>
@@ -103,37 +92,60 @@ function selecter(){
           >
             Select All
           </button>
-        </div>
 
-        <ul>
+          <h1 className="font-semibold text-[20px] text-black-100">task manager</h1>
+
+          </div>
+        <div className="  w-[650px] h-[30%] bg-[#ebecfb]  rounded-md">
+        <input value={input} type="text" className="w-[75%] pl-2 py-3 rounded bg-[#ebecfb]"
+            onChange={(e) => { setInput(e.target.value) }} />
+
+
+          <button className="text-white bg-[#B619F3] py-3 w-[25%] rounded-md" onClick={() => {
+            if (input === "") {
+              return
+            } else {
+              adder()
+            }
+          }} >SUBMIT</button>
+
+        </div>
+</div>
+
+
+        <ul className="mt-[100px] w-[60%] flex-col ">
           {items?.map((item) => {
             return (
-              <li className="flex gap-2 cursor-pointer mb-2 items-center" key={item.id}>
+              <li className="w-full h-[80px] mb-[2%] text-lg flex bg-white  cursor-pointer px-[10%]  items-center  " key={item.id}>
 
                 {(editId === item.id) ? 
                 <input className="border-2 border-black" type="text" value={update} onChange={(e) => { setUpdate(e.target.value) }} /> 
                 :
                 <>
-                <input type="checkbox" checked={item.isChecked} onChange={(e)=>changeChecked(item.id,e.target.checked)} />
-                <div >{item.name} </div>
+                <input type="checkbox"  checked={item.isChecked} onChange={(e)=>changeChecked(item.id,e.target.checked)} />
+                <div className="pl-[5%]  " >{item.name} </div>
                 {/* {item.isChecked && <div>did it work?</div>} */}
                 </>
                 }
 
 
-
-                <button className="text-red-900 " onClick={() => deleter(item.id)}><FaTrash /></button>
+<div className=" w-full flex justify-end items-end">
+              <button className="text-red-900 p-4 " onClick={() => deleter(item.id)}><FaTrash /></button>
                 <button
                   onClick={() => {
                     setEditId(item.id)
                     setUpdate(item.name)
                   }}
-                  className="p-1 text-black rounded-md " ><FaEdit/></button>
+                  className="p-4  text-black rounded-md " ><FaEdit/></button>
+</div>
+
+                  
                 {(editId === item.id) && <button onClick={() => {
                   updater()
                   setEditId('aaaaa')
                 }}
                   className="p-1 bg-red-600 text-white rounded-md">Done</button>}
+
               </li>
             )
           })}
