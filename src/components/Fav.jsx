@@ -12,6 +12,8 @@ export default function Fav(props) {
   const [editId, setEditId] = useState('')
   const [update, setUpdate] = useState('')
   const [checked,setChecked]=useState(false)
+  const [selectAllValue,setSelectAllValue]=useState(false)
+  const [isDelete,setIsDelete]=useState(false)
   const [items, setItems] = useState([
     {
       name: 'eggs',
@@ -46,7 +48,13 @@ export default function Fav(props) {
   }
 
 function selecter(){
-  const deleteSelected=items.map((item)=>({...item, isChecked:true}))
+  setSelectAllValue(!selectAllValue) //true
+  if(selectAllValue===false){
+    setIsDelete(true)
+  }else{
+    setIsDelete(false)
+  }
+  const deleteSelected=items.map((item)=>({...item, isChecked:!selectAllValue}))
  setItems(deleteSelected)
 }
 
@@ -64,14 +72,27 @@ function selecter(){
   }
   const changeChecked=(id,checkValue)=>{
     console.log(checkValue)
+    let count=0
     const newArr = items.map((item) => {
+      
       if (item.id === id) {
+        if(checkValue===true ){
+          console.log(count)
+          count=count+1
+        }
         return { ...item, isChecked:checkValue }
       }
       else {
+        if(item.isChecked===true) count=count+1
         return item
       }
     })
+    console.log(count)
+    if(count>0){
+      setIsDelete(true)
+    }else{
+      setIsDelete(false)
+    }
     setItems(newArr)
   }
   return (
@@ -82,26 +103,30 @@ function selecter(){
       <div className=" bg-white mt-[15%]   w-[60%] h-[20%] shadow-lg flex flex-col gap-4 items-center justify-center">
       
          <div>
-          <button 
+{          <div className="flex gap-4">
+{ isDelete && <button 
        
-          className="p-3  text-white bg-red-600 rounded-md" value={checked} onClick={()=>remover()}>
-            Delete Selected
-          </button>
-          <button
-          className="p-3 border-black border-2 rounded-md" onClick={()=>selecter()}
-          >
-            Select All
-          </button>
+       className="p-3  text-white bg-red-600 rounded-md" value={checked} onClick={()=>remover()}>
+         Delete Selected
+       </button>}
+       <button
+       className="p-3 border-black border-2 rounded-md" onClick={()=>selecter()}
+       >
+      { !selectAllValue? "Select All":"Deselect All"}
+       </button>
+</div>
+          
+          }
 
-          <h1 className="font-semibold text-[20px] text-black-100">task manager</h1>
+          <h1 className="font-semibold text-3xl capitalize text-black-100">task manager</h1>
 
           </div>
         <div className="  w-[650px] h-[30%] bg-[#ebecfb]  rounded-md">
-        <input value={input} type="text" className="w-[75%] pl-2 py-3 rounded bg-[#ebecfb]"
+        <input placeholder="e.g. DO DISHES U FILTHY WOMAN" value={input} type="text" className="w-[75%] pl-2 py-3 rounded bg-[#ebecfb]"
             onChange={(e) => { setInput(e.target.value) }} />
 
 
-          <button className="text-white bg-[#B619F3] py-3 w-[25%] rounded-md" onClick={() => {
+          <button className="text-white bg-[#B619F3] py-3 w-[25%] rounded-r-md" onClick={() => {
             if (input === "") {
               return
             } else {

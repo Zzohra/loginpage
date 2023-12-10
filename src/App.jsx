@@ -8,7 +8,7 @@ import { useState } from 'react'
 import Login from './components/Login'
 import Entered from './components/Entered'
 import Fav from './components/Fav'
-
+import NewFav from './components/NewFav'
 function App(){
 
 
