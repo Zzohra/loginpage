@@ -100,13 +100,14 @@ function selecter(){
 
 <div className="bg-[#ece1f0] flex flex-col items-center w-screen h-screen">
 
-      <div className=" bg-white mt-[15%]   w-[60%] h-[20%] shadow-lg flex flex-col gap-4 items-center justify-center">
+      <div className=" bg-white mt-[15%]  w-[80%] sm:w-[60%] h-[20%] shadow-lg flex flex-col gap-4 items-center justify-center">
       
-         <div>
-{          <div className="flex gap-4">
+         <div className="flex flex-col justify-center items-center">
+{          <div className="flex  gap-4">
+
 { isDelete && <button 
        
-       className="p-3  text-white bg-red-600 rounded-md" value={checked} onClick={()=>remover()}>
+       className=" p-3   text-white bg-red-600 rounded-md" value={checked} onClick={()=>remover()}>
          Delete Selected
        </button>}
        <button
@@ -118,15 +119,15 @@ function selecter(){
           
           }
 
-          <h1 className="font-semibold text-3xl capitalize text-black-100">task manager</h1>
+          <h1 className=" font-semibold sm:text-3xl text-xl  capitalize text-black-100">task manager</h1>
 
           </div>
-        <div className="  w-[650px] h-[30%] bg-[#ebecfb]  rounded-md">
-        <input placeholder="e.g. DO DISHES U FILTHY WOMAN" value={input} type="text" className="w-[75%] pl-2 py-3 rounded bg-[#ebecfb]"
+        <div className=" w-[270px] sm:w-[650px] h-[25%] bg-[#ebecfb]  rounded-md">
+        <input placeholder="e.g. DO DISHES U FILTHY WOMAN"  value={input} type="text" className="w-[80%] pl-2 py-3 rounded bg-[#ebecfb] sm:text-[15px] text-[11px]"
             onChange={(e) => { setInput(e.target.value) }} />
 
 
-          <button className="text-white bg-[#B619F3] py-3 w-[25%] rounded-r-md" onClick={() => {
+          <button className="text-white text-[11px] sm:text-[15px] bg-[#B619F3] py-3  w-[20%] rounded-r-md" onClick={() => {
             if (input === "") {
               return
             } else {
@@ -138,10 +139,10 @@ function selecter(){
 </div>
 
 
-        <ul className="mt-[100px] w-[60%] flex-col ">
+        <ul className="mt-[100px] w-[60%] flex-col space-y-2 ">
           {items?.map((item) => {
             return (
-              <li className="w-full h-[80px] mb-[2%] text-lg flex bg-white  cursor-pointer px-[10%]  items-center  " key={item.id}>
+              <li className="w-full sm:h-[80px] mb-[2%] text-lg flex bg-white  cursor-pointer px-[10%]  items-center  " key={item.id}>
 
                 {(editId === item.id) ? 
                 <input className="border-2 border-black" type="text" value={update} onChange={(e) => { setUpdate(e.target.value) }} /> 
